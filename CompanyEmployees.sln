@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CompanyEmployees", "CompanyEmployees\CompanyEmployees.csproj", "{CC416260-262A-45D8-99E7-898E9DD7139D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{A250742E-8712-46E3-9945-A8E272D47460} = {A250742E-8712-46E3-9945-A8E272D47460}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contracts", "Contracts\Contracts.csproj", "{2AF2FB32-0866-4A34-ACD4-7FC0A5FECC8F}"
 EndProject
@@ -11,7 +14,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoggerService", "LoggerServ
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entities", "Entities\Entities.csproj", "{87999F01-8F64-46A0-96CE-DACEBEDCABAB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repository", "Repository\Repository.csproj", "{C7DC5520-FEBD-4E6E-95C1-4379AD2F3A70}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Repository", "Repository\Repository.csproj", "{C7DC5520-FEBD-4E6E-95C1-4379AD2F3A70}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service.Contracts", "Service.Contracts\Service.Contracts.csproj", "{CB622A93-971D-47EA-A420-D073BC39D9F4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service", "Service\Service.csproj", "{A250742E-8712-46E3-9945-A8E272D47460}"
+	ProjectSection(ProjectDependencies) = postProject
+		{2AF2FB32-0866-4A34-ACD4-7FC0A5FECC8F} = {2AF2FB32-0866-4A34-ACD4-7FC0A5FECC8F}
+		{CB622A93-971D-47EA-A420-D073BC39D9F4} = {CB622A93-971D-47EA-A420-D073BC39D9F4}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +50,14 @@ Global
 		{C7DC5520-FEBD-4E6E-95C1-4379AD2F3A70}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C7DC5520-FEBD-4E6E-95C1-4379AD2F3A70}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C7DC5520-FEBD-4E6E-95C1-4379AD2F3A70}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CB622A93-971D-47EA-A420-D073BC39D9F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB622A93-971D-47EA-A420-D073BC39D9F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB622A93-971D-47EA-A420-D073BC39D9F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB622A93-971D-47EA-A420-D073BC39D9F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A250742E-8712-46E3-9945-A8E272D47460}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A250742E-8712-46E3-9945-A8E272D47460}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A250742E-8712-46E3-9945-A8E272D47460}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A250742E-8712-46E3-9945-A8E272D47460}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
