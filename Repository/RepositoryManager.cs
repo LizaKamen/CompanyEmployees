@@ -19,9 +19,9 @@ namespace Repository
             _companyRepository = new Lazy<ICompanyRepository>(() => new CompanyRepository(repositoryContext));
             _employeeRepository = new Lazy<IEmployeeRepository>(() => new EmployeeRepository(repositoryContext));
         }
-        public IEmployeeRepository EmployeeRepository => _employeeRepository.Value;
+        public IEmployeeRepository Employee => _employeeRepository.Value;
 
-        public ICompanyRepository CompanyRepository => _companyRepository.Value;
+        public ICompanyRepository Company => _companyRepository.Value;
 
         public void Save() => _repositoryContext.SaveChanges();
     }
