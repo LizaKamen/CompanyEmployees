@@ -2,6 +2,7 @@
 using Contracts;
 using Service.Contracts;
 using Shared.DataTransferObjects;
+using Entities.Exceptions;
 
 namespace Service
 {
@@ -29,6 +30,10 @@ namespace Service
         public CompanyDto GetCompany(Guid companyId, bool trackChanges)
         {
             var company = _repository.Company.GetCompany(companyId, trackChanges);
+            if (company is null)
+            {
+                throw new CompanyNotFoundException(companyId);
+            }
 
             var companyDto = _mapper.Map<CompanyDto>(company);
             return companyDto;
