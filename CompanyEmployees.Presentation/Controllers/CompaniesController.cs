@@ -44,12 +44,21 @@ namespace CompanyEmployees.Presentation.Controllers
 
             return CreatedAtRoute("CompanyById", new { id = createdCompnay.Id }, createdCompnay);
         }
+
         [HttpPost("collection")]
         public IActionResult CreateCompanyCollection([FromBody] IEnumerable<CompanyForCreationDto> companyCollection)
         {
             var result = _service.CompanyService.CreateCompanyCollection(companyCollection);
 
             return CreatedAtRoute("CompanyCollection", new {result.ids}, result.companies);
+        }
+
+        [HttpDelete("{id:guid}")]
+        public IActionResult DeleteCompany(Guid id) 
+        {
+            _service.CompanyService.DeleteCompany(id, trackChanges: false);
+
+            return NoContent();
         }
     }
 }
