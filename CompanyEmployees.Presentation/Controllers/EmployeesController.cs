@@ -19,15 +19,17 @@ namespace CompanyEmployees.Presentation.Controllers
         [HttpGet]
         public IActionResult GetEmployeeesForCompany(Guid companyId)
         {
-            var employees = _service.EmployeeService.GetEmployees(companyId, trackChanges : false);
+            var employees = _service.EmployeeService.GetEmployees(companyId, trackChanges: false);
             return Ok(employees);
         }
+
         [HttpGet("{id:guid}", Name = "GetEmployeeForCompany")]
         public IActionResult GetEmployeeForCompany(Guid companyId, Guid id)
         {
-            var employee = _service.EmployeeService.GetEmployee(companyId, id, trackChanges : false);
+            var employee = _service.EmployeeService.GetEmployee(companyId, id, trackChanges: false);
             return Ok(employee);
         }
+
         [HttpPost]
         public IActionResult CreateEmployeeForCompany(Guid companyId, [FromBody] EmployeeForCreationDto employee)
         {
@@ -37,7 +39,14 @@ namespace CompanyEmployees.Presentation.Controllers
             }
             var employeeToReturn = _service.EmployeeService.CreateEmployeeForCompany(companyId, employee, trackChanges: false);
 
-            return CreatedAtRoute("GetEmployeeForCompany", new {companyId , id = employeeToReturn.Id}, employeeToReturn);
+            return CreatedAtRoute("GetEmployeeForCompany", new { companyId, id = employeeToReturn.Id }, employeeToReturn);
+        }
+
+        [HttpDelete("{id:guid}")]
+        public IActionResult DeleteEmployee(Guid companyId, Guid id)
+        {
+            _service.EmployeeService.DeleteEmployeeForCompany(companyId,id, trackChanges: false);
+            return NoContent();
         }
     }
 }
