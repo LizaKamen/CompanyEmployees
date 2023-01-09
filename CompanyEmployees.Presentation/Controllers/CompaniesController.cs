@@ -60,5 +60,13 @@ namespace CompanyEmployees.Presentation.Controllers
 
             return NoContent();
         }
+
+        [HttpPut("{id:guid}")]
+        public IActionResult UpdateCompany (Guid id, CompanyForUpdateDto company)
+        {
+            _service.CompanyService.UpdateCompany(id, company, trackChanges: true);
+            
+            return NoContent();
+        }
     }
 }
