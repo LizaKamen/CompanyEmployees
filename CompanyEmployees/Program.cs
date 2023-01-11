@@ -28,7 +28,7 @@ builder.Services.AddControllers(config => {
     config.RespectBrowserAcceptHeader = true;
     config.ReturnHttpNotAcceptable = true;
     config.InputFormatters.Insert(0, GetJsonPatchInputFormatter());
-}).AddXmlDataContractSerializerFormatters().AddCustomCsvFormatter().AddApplicationPart(typeof(CompanyEmployees.Presentation.AssemblyReference).Assembly);
+}).AddXmlDataContractSerializerFormatters().AddCustomCsvFormatter().AddApplicationPart(typeof(CompanyEmployees.Presentation.AssemblyReference).Assembly).AddNewtonsoftJson();
 
 var app = builder.Build();
 
