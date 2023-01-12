@@ -40,6 +40,10 @@ namespace CompanyEmployees.Presentation.Controllers
             if (company is null)
                 return BadRequest("CompanyForCreationDto object is null");
 
+            if (!ModelState.IsValid)
+            {
+                return UnprocessableEntity(ModelState);
+            }
             var createdCompnay = _service.CompanyService.CreateCompany(company);
 
             return CreatedAtRoute("CompanyById", new { id = createdCompnay.Id }, createdCompnay);
