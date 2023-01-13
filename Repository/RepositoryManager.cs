@@ -23,6 +23,6 @@ namespace Repository
 
         public ICompanyRepository Company => _companyRepository.Value;
 
-        public void Save() => _repositoryContext.SaveChanges();
+        public async Task Save() => await _repositoryContext.SaveChangesAsync();
     }
 }
