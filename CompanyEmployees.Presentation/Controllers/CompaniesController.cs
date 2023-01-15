@@ -13,6 +13,7 @@ namespace CompanyEmployees.Presentation.Controllers
         private readonly IServiceManager _service;
         public CompaniesController(IServiceManager service) => _service = service;
 
+        // TODO: Add paging
         [HttpGet]
         public async Task<IActionResult> GetCompanies()
         {
@@ -35,6 +36,7 @@ namespace CompanyEmployees.Presentation.Controllers
             return Ok(companies);
         }
 
+        // FIX: No validation for employees
         [HttpPost]
         [ServiceFilter(typeof(ValidationFilterAttribute))]
         public async Task<IActionResult> CreateCompany([FromBody] CompanyForCreationDto company)
@@ -43,7 +45,6 @@ namespace CompanyEmployees.Presentation.Controllers
 
             return CreatedAtRoute("CompanyById", new { id = createdCompnay.Id }, createdCompnay);
         }
-
         [HttpPost("collection")]
         public async Task<IActionResult> CreateCompanyCollection([FromBody] IEnumerable<CompanyForCreationDto> companyCollection)
         {
