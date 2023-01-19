@@ -13,7 +13,7 @@ namespace CompanyEmployees.Presentation.Controllers
         private readonly IServiceManager _service;
         public CompaniesController(IServiceManager service) => _service = service;
 
-        // TODO: Add paging
+        // TODO: Add paging for companies
         [HttpGet]
         public async Task<IActionResult> GetCompanies()
         {
