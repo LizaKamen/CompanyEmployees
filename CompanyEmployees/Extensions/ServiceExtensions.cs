@@ -49,6 +49,7 @@ namespace CompanyEmployees.Extensions
                 if (systemTextJsonOutputFormatter != null)
                 {
                     systemTextJsonOutputFormatter.SupportedMediaTypes.Add("application/vnd.lk.hateoas+json");
+                    systemTextJsonOutputFormatter.SupportedMediaTypes.Add("application/vnd.lk.apiroot+json");
                 }
 
                 var xmlOutputFormatter = config.OutputFormatters.OfType<XmlDataContractSerializerOutputFormatter>()?.FirstOrDefault();
@@ -56,6 +57,7 @@ namespace CompanyEmployees.Extensions
                 if (xmlOutputFormatter != null)
                 {
                     xmlOutputFormatter.SupportedMediaTypes.Add("application/vnd.lk.hateoas+xml");
+                    xmlOutputFormatter.SupportedMediaTypes.Add("application/vnd.lk.apiroot+xml");
                 }
             });
         }
