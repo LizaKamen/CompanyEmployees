@@ -44,15 +44,19 @@ namespace CompanyEmployees.Extensions
         {
             services.Configure<MvcOptions>(config =>
             {
-                var systemTextJsonOutputFormatter = config.OutputFormatters.OfType<SystemTextJsonOutputFormatter>()?.FirstOrDefault();
+                var systemTextJsonOutputFormatter = config.OutputFormatters.OfType<NewtonsoftJsonOutputFormatter>()?.FirstOrDefault();
 
                 if (systemTextJsonOutputFormatter != null)
+                {
                     systemTextJsonOutputFormatter.SupportedMediaTypes.Add("application/vnd.lk.hateoas+json");
+                }
 
                 var xmlOutputFormatter = config.OutputFormatters.OfType<XmlDataContractSerializerOutputFormatter>()?.FirstOrDefault();
 
                 if (xmlOutputFormatter != null)
+                {
                     xmlOutputFormatter.SupportedMediaTypes.Add("application/vnd.lk.hateoas+xml");
+                }
             });
         }
     }

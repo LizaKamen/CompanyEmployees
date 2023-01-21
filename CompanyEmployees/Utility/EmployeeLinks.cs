@@ -55,8 +55,8 @@ namespace CompanyEmployees.Utility
             var links = new List<Link>
             {
                 new Link(_linkGenerator.GetUriByAction(httpContext, "GetEmployeeForCompany", values: new {companyId, id, fields}), "self", "GET"),
-                new Link(_linkGenerator.GetUriByAction(httpContext, "DeleteEmployeeForCompany", values: new {companyId, id}), "delete_employee", "DELETE"),
-                new Link(_linkGenerator.GetUriByAction(httpContext, "UpdateEmployeeForCompany", values: new {companyId, id}), "update_employee", "UPDATE"),
+                new Link(_linkGenerator.GetUriByAction(httpContext, "DeleteEmployee", values: new {companyId, id}), "delete_employee", "DELETE"),
+                new Link(_linkGenerator.GetUriByAction(httpContext, "UpdateEmployee", values: new {companyId, id}), "update_employee", "PUT"),
                 new Link(_linkGenerator.GetUriByAction(httpContext, "PartiallyUpdateEmployeeForCompany", values: new { companyId, id }), "partially_update_employee", "PATCH"),
             };
 
