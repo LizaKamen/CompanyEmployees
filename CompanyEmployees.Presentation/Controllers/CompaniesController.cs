@@ -1,5 +1,6 @@
 ﻿using CompanyEmployees.ActionFilters;
 using CompanyEmployees.Presentation.ModelBinders;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Service.Contracts;
 using Shared.DataTransferObjects;
@@ -9,6 +10,7 @@ namespace CompanyEmployees.Presentation.Controllers
     [Route("/api/companies")]
     [ApiController]
     [ResponseCache(CacheProfileName = "120SecDuration")]
+    [Authorize]
     public class CompaniesController : ControllerBase
     {
         private readonly IServiceManager _service;
